@@ -1,0 +1,19 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": "last 1 version"
+            }
+        ],
+        "solid",
+        [
+            "@babel/preset-typescript",
+            {
+                "optimizeConstEnums": true
+            }
+        ]
+    ],
+
+    "comments": false
+}

@@ -1,0 +1,27 @@
+/**
+ * !
+ * Pico: Customs styles for Docs
+ *
+ * @format
+ */
+
+// Config
+@import '@picocss/pico/scss/variables';
+@import '@picocss/pico/scss/themes';
+// Theming
+@import 'themes/docs';
+
+// Layout
+@import 'layout/document';
+@import 'layout/main';
+@import 'layout/aside';
+@import 'layout/documentation';
+
+// Content
+@import 'content/typography';
+@import 'content/code';
+
+// Components
+@import 'components/modal';
+@import 'components/nav';
+@import 'components/theme-switcher';
