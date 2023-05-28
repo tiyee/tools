@@ -1,0 +1,49 @@
+name: NodeJS with Webpack
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ current ]
+
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: |
+          node -v
+          pnpm i 
+
+      - name: Build tools web production
+        run: pnpm run pro
+      - name: Push to Aliyun OSS
+        uses: tiyee/aliyun-oss-auto-upload@v2.0.1
+        with:
+          # aliyun config
+          region: ${{ secrets.REGION }} # like oss-cn-beijing
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: ${{ secrets.BUCKET }}
+          secure: true
+          # deploy config
+          local-folder: html
+          remote-dir: /tools/
+

@@ -48,11 +48,11 @@ export const ImageUploader: Component = () => {
             }
             const up = uploader(ctx, file)
 
-            up.on(HanleEvent.Progress, e => {
+            up.on('progress', e => {
                 console.log('progess', e)
                 setProgress(Math.floor((e.uploadedSize * 100) / e.totalSize))
             })
-            up.on(HanleEvent.Complete, e => {
+            up.on('complete', e => {
                 console.log('complete', e)
                 alert(e.url)
                 setShortUrl(e.url)

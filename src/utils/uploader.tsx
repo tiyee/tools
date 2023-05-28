@@ -47,6 +47,7 @@ export const enum Event {
     Fail = 'fail',
     Complete = 'complete',
 }
+export type HandleEvent = 'progress' | 'retry' | 'success' | 'fail' | 'complete'
 export interface IContext extends IRequestOptions {
     maxConcurrency: number
     totalSize: number
@@ -233,20 +234,20 @@ export class Uploader<F extends IFileHandle, R extends IRequest, USP extends IUR
             this.fail,
         )
     }
-    public on(event: Event, callback: (e: any) => void) {
+    public on(event: HandleEvent, callback: (e: any) => void) {
         switch (event) {
-            case Event.Progress:
+            case 'progress':
                 this.progress = callback
                 break
-            case Event.Retry:
+            case 'retry':
                 break
-            case Event.Success:
+            case 'success':
                 this.success = callback
                 break
-            case Event.Fail:
+            case 'fail':
                 this.fail = callback
                 break
-            case Event.Complete:
+            case 'complete':
                 this.complete = callback
                 break
         }
