@@ -45,5 +45,5 @@ jobs:
           secure: true
           # deploy config
           local-folder: html
-          remote-dir: /tools/
+          remote-dir: /
 
