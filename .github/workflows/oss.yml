@@ -51,7 +51,7 @@ jobs:
       - name: Build tools web production
         run: pnpm run pro
       - name: Push to Aliyun OSS
-        uses: tiyee/aliyun-oss-auto-upload@v2.0.1
+        uses: tiyee/aliyun-oss-auto-upload@v2.0.5
         with:
           # aliyun config
           region: ${{ secrets.REGION }} # like oss-cn-beijing
