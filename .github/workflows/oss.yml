@@ -24,9 +24,25 @@ jobs:
 
       - name: Install PNPM
         uses: pnpm/action-setup@v2
+        id: pnpm-install
         with:
           version: 8
+          
+          
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+            
       - name: Install dependencies
         run: |
           node -v
@@ -35,15 +51,15 @@ jobs:
       - name: Build tools web production
         run: pnpm run pro
       - name: Push to Aliyun OSS
-        uses: tiyee/aliyun-oss-auto-upload@v2.0.1
+        uses: tiyee/aliyun-oss-auto-upload@v2.0.6
         with:
           # aliyun config
           region: ${{ secrets.REGION }} # like oss-cn-beijing
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
           bucket: ${{ secrets.BUCKET }}
-          secure: true
+          secure: false
           # deploy config
           local-folder: html
-          remote-dir: /tools/
+          remote-dir: /
 
