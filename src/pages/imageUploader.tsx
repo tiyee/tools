@@ -3,7 +3,7 @@
 import type {JSX, Component, ParentProps} from 'solid-js'
 import {createSignal, createEffect, Show} from 'solid-js'
 import request from 'utils/request'
-import {CreateShortUrl, baseUrl} from '../const/urls'
+import {CreateShortUrl, MergeUrl, UploadUrl, TouchUrl} from '../const/urls'
 import {useNav} from 'componets/nav'
 import {stringify} from 'qs'
 import uploader from '../utils/web'
@@ -39,9 +39,9 @@ export const ImageUploader: Component = () => {
                 maxConcurrency: 5,
                 totalSize: file.size,
                 chunkSize: 1024 * 1024,
-                uploadUrl: baseUrl + '/2/uploader/upload',
-                mergeUrl: baseUrl + '/2/uploader/merge',
-                touchUrl: baseUrl + '/2/uploader/init',
+                uploadUrl: UploadUrl,
+                mergeUrl: MergeUrl,
+                touchUrl: TouchUrl,
                 testChunks: false,
                 //credentials: 'include',
                 mod: 'cors',

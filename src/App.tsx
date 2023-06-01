@@ -1,12 +1,10 @@
 /** @format */
 
 import {render} from 'solid-js/web'
-import {Button} from 'componets/button'
 import {Main} from 'layouts/Main'
 import {Nav, NavProvider} from 'componets/nav'
 import {ShortUrl} from 'pages/shortUrl'
-import {Routes, Route, Router, hashIntegration, A} from '@solidjs/router'
-//import styles from './index.module.less'
+import {Routes, Route, Router, hashIntegration} from '@solidjs/router'
 import '@picocss/pico/scss/pico.scss'
 import {ImageUploader} from 'pages/imageUploader'
 import {Index} from 'pages'
