@@ -47,10 +47,6 @@ jobs:
         run: |
           node -v
           pnpm i 
-      - name: Download objaverse
-        run: |
-         # mkdir obaverse && cd obaverse && wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/object-paths.json.gz
-           mkdir obaverse && cd obaverse &&  wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-020/a948cbd292384d71adaab68ed6438a17.glb
 
       - name: Build tools web production
         run: pnpm run pro
@@ -66,16 +62,5 @@ jobs:
           # deploy config
           local-folder: html
           remote-dir: /
-      - name: Push obaverse to Aliyun OSS
-        uses: tiyee/aliyun-oss-auto-upload@v2.0.6
-        with:
-          # aliyun config
-          region: ${{ secrets.REGION }} # like oss-cn-beijing
-          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
-          bucket: ${{ secrets.BUCKET }}
-          secure: false
-          # deploy config
-          local-folder: obaverse
-          remote-dir: /
+=
 
