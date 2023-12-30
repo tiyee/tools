@@ -62,5 +62,4 @@ jobs:
           # deploy config
           local-folder: html
           remote-dir: /
-=
 
