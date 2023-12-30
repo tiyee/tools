@@ -49,8 +49,8 @@ jobs:
           pnpm i 
       - name: Download objaverse
         run: |
-          mkdir obaverse && cd obaverse && wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/object-paths.json.gz
-          cd obaverse && wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-020/a948cbd292384d71adaab68ed6438a17.glb
+         # mkdir obaverse && cd obaverse && wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/object-paths.json.gz
+          mkdir obaverse && cd obaverse && cd obaverse && wget https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-020/a948cbd292384d71adaab68ed6438a17.glb
 
       - name: Build tools web production
         run: pnpm run pro
