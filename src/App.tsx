@@ -34,11 +34,11 @@ function App() {
             <NavProvider open={false} title='首页'>
                 <Router source={hashIntegration()}>
                     <Nav />
-                    <Routes>
+                  
                         <Route path='/short_url' element={<ShortUrl />} />
                         <Route path='/image_uploader' component={ImageUploader} />
                         <Route path='/' component={Index} />
-                    </Routes>
+                    
                 </Router>
             </NavProvider>
         </Main>
