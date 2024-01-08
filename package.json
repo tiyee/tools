@@ -38,7 +38,7 @@
         "mini-css-extract-plugin": "latest",
         "webpack-cli": "latest",
         "@solidjs/router": "latest",
-        "solid-js": "^1.7.5",
+        "solid-js": "latest",
         "css-loader": "latest",
         "sass-loader": "latest",
         "@picocss/pico": "latest",
