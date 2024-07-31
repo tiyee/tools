@@ -49,7 +49,10 @@ jobs:
           pnpm i 
 
       - name: Build tools web production
-        run: pnpm run dev
+        run: |
+          pnpm run dev
+          mkdir -p html/a/b/c
+          touch html/a/b/c/index.html
       - name: Push to Aliyun OSS
         uses: tiyee/aliyun-oss-auto-upload@v2.0.6
         with:
