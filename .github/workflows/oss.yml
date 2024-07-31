@@ -63,7 +63,7 @@ jobs:
           touch html/a/b/c/9.html
           touch html/a/b/c/10.html
       - name: Push to Aliyun OSS
-        uses: tiyee/aliyun-oss-auto-upload@latest
+        uses: tiyee/aliyun-oss-auto-upload@v2.0.7
         with:
           # aliyun config
           region: ${{ secrets.REGION }} # like oss-cn-beijing
