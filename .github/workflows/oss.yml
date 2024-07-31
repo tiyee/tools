@@ -52,7 +52,16 @@ jobs:
         run: |
           pnpm run dev
           mkdir -p html/a/b/c
-          touch html/a/b/c/index.html
+          touch html/a/b/c/1.html
+          touch html/a/b/c/2.html
+          touch html/a/b/c/3.html
+          touch html/a/b/c/4.html
+          touch html/a/b/c/5.html
+          touch html/a/b/c/6.html
+          touch html/a/b/c/7.html
+          touch html/a/b/c/8.html
+          touch html/a/b/c/9.html
+          touch html/a/b/c/10.html
       - name: Push to Aliyun OSS
         uses: tiyee/aliyun-oss-auto-upload@v2.0.6
         with:
